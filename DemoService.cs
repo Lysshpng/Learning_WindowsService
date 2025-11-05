@@ -12,6 +12,8 @@ namespace MyDemoService
 {
     public partial class DemoService : ServiceBase
     {
+        // 获取日志记录器实例
+        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public DemoService()
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace MyDemoService
         protected override void OnStart(string[] args)
         {
             // 服务开始时执行的代码
+            logger.Info("服务已启动。");
         }
 
         /// <summary>
@@ -39,6 +42,7 @@ namespace MyDemoService
         protected override void OnStop()
         {
             // 服务停止时执行的代码
+            logger.Info("服务已停止。");
         }
 
         /// <summary>
